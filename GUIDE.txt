@@ -1,0 +1,22 @@
+LIFEMANAGER v3 - EVERYTHING ON GITHUB
+=====================================
+app/        -> upload to PUBLIC repository "lifemanager" (GitHub Pages hosts the phone app)
+data-repo/  -> reference copy of the email robot. The app installs it into your PRIVATE repository
+               "lifemanager-data" automatically; upload it by hand only if asked.
+
+STEP 1  Create public repo "lifemanager", upload everything inside app/ (incl. icons folder)
+STEP 2  lifemanager > Settings > Pages > Deploy from a branch > main / (root) > Save -> app link
+STEP 3  Create PRIVATE repo "lifemanager-data" (tick "Add a README file")
+STEP 4  Profile photo > Settings > Developer settings > Personal access tokens > Fine-grained tokens >
+        Generate new token: Only select repositories = lifemanager-data;
+        Repository permissions: Contents, Actions, Workflows = Read and write. Copy the token.
+STEP 5  Gmail App Password (Google Account > Security > 2-Step Verification on > App passwords),
+        then lifemanager-data > Settings > Secrets and variables > Actions > New repository secret:
+        GMAIL_USER = your Gmail address,  GMAIL_APP_PASSWORD = the 16-letter app password
+STEP 6  Phone: open the app link > Connect: username/lifemanager-data + token > Install app
+STEP 7  App Settings: name, budget, members, emails > Save > Send test email
+STEP 8  Wife's phone: same link, same repository + token
+
+Updating the app later: upload changed files to "lifemanager" and change CACHE in sw.js.
+Free limits: reminder check every 30 min uses ~1,500 of the 2,000 free Actions minutes/month.
+GitHub pauses scheduled robots after 60 days without any changes in the repository - normal app use keeps it active.
